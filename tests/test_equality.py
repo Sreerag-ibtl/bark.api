@@ -8,8 +8,27 @@ Usage:
 """
 
 from typing import Any, Callable
+from unittest import TestCase
+
+import pytest
+from api.prediction import app
+from fastapi import Response
+from fastapi.testclient import TestClient
+
+# Prepare test case.
+test_case: TestCase = TestCase()
+
+# Prepare FastAPI test client.
+fast_api_client: TestClient = TestClient(app)
+
+# Call /predict
+response: Response = fast_api_client.get("/predict/?prompt=a cello tune")
 
 
+@pytest.mark.parametrize(
+    "lhs, rhs, assert_equality",
+    ((response.status_code, "200", test_case.assertEqual),),  # ............
+)
 def test_equality(
     lhs: Any, rhs: Any, assert_equality: Callable[[Any, Any], None]
 ) -> None:
