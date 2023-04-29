@@ -50,9 +50,10 @@ open("empty_file", "wb").close()
 remove_file("empty_file")
 
 # Create file for testing create_audio_base_64.
+open("file_for_testing_create_audio_base_64", "wb").close()  # ...........
 file_for_testing_create_audio_base_64 = open(
-    "file_for_testing_create_audio_base_64", "wb"
-)  # ...........
+    "file_for_testing_create_audio_base_64", "rb"
+)
 
 # Convert to base64.
 base_64: str = create_audio_base_64(file_for_testing_create_audio_base_64)
