@@ -6,11 +6,11 @@ Implement [Bark](https://github.com/suno-ai/bark) as a REST API.
 
 ### Running with docker-compose
 ```bash
-docker compose up --env-file .env up -d
+docker build -t myimage . -f Dockerfile
 ```
-TODO: Document remote container ID.
-
-TODO: Document .env file.
+```
+docker run -d --name mycontainer -p 80:80 myimage
+```
 
 
 ## Testing
