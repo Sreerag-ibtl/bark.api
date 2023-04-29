@@ -51,7 +51,7 @@ remove_file("empty_file")
 
 # Create file for testing create_audio_base_64.
 file_for_testing_create_audio_base_64 = open(
-    "file_for_testing_create_audio_base_64"
+    "file_for_testing_create_audio_base_64", "wb"
 )  # ...........
 
 # Convert to base64.
@@ -61,6 +61,9 @@ base_64: str = create_audio_base_64("empty_file")
 decode_encode_audio_base_64: str = b64encode(b64decode(base_64)).decode(
     "utf-8"
 )  # ................
+
+# Close file object.
+file_for_testing_create_audio_base_64.close()
 
 # Remove file.
 remove_file("file_for_testing_create_audio_base_64")
