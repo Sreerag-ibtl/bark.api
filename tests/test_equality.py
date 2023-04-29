@@ -34,8 +34,9 @@ response: Response = fast_api_client.get("/predict/?prompt=a cello tune")
 # Get audio as byte string.
 audio_base_64: str = response.json()["audio_base_64"]
 
-# Decode and check has RIFF in string.
-decoded_audio_has_riff: bool = audio_base_64.__contains__("RIFF")
+# Decode and check has UklGR in string.
+# UklGR is base64 encoded version of header RIFF__WAV in a wav file.
+decoded_audio_has_riff: bool = audio_base_64.__contains__("UklGR")
 
 # Create unique filename.
 unique_filenames: List[str] = list(
