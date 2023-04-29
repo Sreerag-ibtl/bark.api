@@ -15,7 +15,7 @@ from fastapi import FastAPI
 from numpy.typing import NDArray
 from scipy.io.wavfile import write
 
-from api.create_audio_base64 import create_audio_base_64
+from api.create_audio_base_64 import create_audio_base_64
 from api.create_unique_filename import create_unique_filename
 from api.remove_file import remove_file
 
