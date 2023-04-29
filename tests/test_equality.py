@@ -55,7 +55,7 @@ file_for_testing_create_audio_base_64 = open(
 )  # ...........
 
 # Convert to base64.
-base_64: str = create_audio_base_64("empty_file")
+base_64: str = create_audio_base_64(file_for_testing_create_audio_base_64)
 
 # Decode and encode back.
 decode_encode_audio_base_64: str = b64encode(b64decode(base_64)).decode(
