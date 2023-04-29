@@ -9,6 +9,7 @@ Usage:
 
 from base64 import b64decode
 from itertools import repeat
+from os.path import exists
 from typing import Any, Callable, List
 from unittest import TestCase
 
@@ -18,6 +19,7 @@ from fastapi.testclient import TestClient
 
 from api.create_unique_filename import create_unique_filename
 from api.prediction import app
+from api.remove_file import remove_file
 
 # Prepare test case.
 test_case: TestCase = TestCase()
@@ -40,6 +42,12 @@ unique_filenames: List[str] = list(
     map(create_unique_filename, repeat("a cello tune", 100))
 )
 
+# Create an empty file.
+open("empty_file", "wb").close()
+
+# Remove file.
+remove_file("empty_file")
+
 
 @pytest.mark.parametrize(
     "lhs, rhs, assert_equality",
@@ -47,6 +55,7 @@ unique_filenames: List[str] = list(
         (response.status_code, 200, test_case.assertEqual),
         (decoded_audio_has_riff, True, test_case.assertEqual),
         (len(set(unique_filenames)), 100, test_case.assertEqual),
+        (exists("empty_file"), False, test_case.assertEqual),
     ),  # ............
 )
 def test_equality(
