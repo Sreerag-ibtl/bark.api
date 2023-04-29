@@ -35,8 +35,7 @@ response: Response = fast_api_client.get("/predict/?prompt=a cello tune")
 audio_base_64: str = response.json()["audio_base_64"]
 
 # Decode and check has RIFF in string.
-decoded_audio_base_64: str = b64decode(audio_base_64).decode("utf-8")
-decoded_audio_has_riff: bool = decoded_audio_base_64.__contains__("RIFF")
+decoded_audio_has_riff: bool = audio_base_64.__contains__("RIFF")
 
 # Create unique filename.
 unique_filenames: List[str] = list(
