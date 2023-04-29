@@ -10,7 +10,7 @@ Usage:
 from uuid import uuid4
 
 
-def create_unique_filename(head: str) -> str:
+def create_unique_filename(head: str) -> str:  # dead: disable
     """Create unique filename.
 
     Create unique filename.
