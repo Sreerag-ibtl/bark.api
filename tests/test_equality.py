@@ -46,7 +46,7 @@ unique_filenames: List[str] = list(
     (
         (response.status_code, 200, test_case.assertEqual),
         (decoded_audio_has_riff, True, test_case.assertEqual),
-        (len(set(unique_filenames)), 100),
+        (len(set(unique_filenames)), 100, test_case.assertEqual),
     ),  # ............
 )
 def test_equality(
