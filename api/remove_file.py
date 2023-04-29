@@ -10,7 +10,7 @@ Usage:
 from os import remove
 
 
-def remove_file(filename: str) -> None:  # dead: disable
+def remove_file(filename: str) -> None:
     """Remove file.
 
     Remove file.

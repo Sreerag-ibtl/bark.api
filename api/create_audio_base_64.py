@@ -12,7 +12,7 @@ from base64 import b64encode
 from _io import TextIOWrapper
 
 
-def create_audio_base_64(file: TextIOWrapper) -> str:  # dead: disable
+def create_audio_base_64(file: TextIOWrapper) -> str:
     """Create audio base 64.
 
     Create audio base 64.
