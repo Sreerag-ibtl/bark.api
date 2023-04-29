@@ -76,7 +76,7 @@ remove_file("file_for_testing_create_audio_base_64")
         (decoded_audio_has_riff, True, test_case.assertEqual),
         (len(set(unique_filenames)), 100, test_case.assertEqual),
         (exists("empty_file"), False, test_case.assertEqual),
-        (decode_encode_audio_base_64, audio_base_64, test_case.assertEqual),
+        (decode_encode_audio_base_64, base_64, test_case.assertEqual),
     ),  # ............
 )
 def test_equality(
